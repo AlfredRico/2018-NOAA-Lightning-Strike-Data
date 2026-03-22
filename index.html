@@ -263,37 +263,18 @@ function toggleAll() {
     expanded ? "Collapse all" : "Expand all";
 }
 
-document.querySelectorAll("h2").forEach(h => {
+document.querySelectorAll(".section > h2").forEach(h => {
   if (h.id === "project-overview") return;
   h.addEventListener("click", () => {
-    const next = h.nextElementSibling;
-
-    // Only toggle if it controls collapsible content
-    if (next && next.classList.contains("collapsible-content")) {
-      next.style.display =
-        next.style.display === "none" ? "block" : "none";
-    } else {
-      // keep original behavior for .section
-      if (h.parentElement.classList.contains("section")) {
-        h.parentElement.classList.toggle("collapsed");
-      }
-    }
+    h.parentElement.classList.toggle("collapsed");
   });
 });
 
 document.querySelectorAll(".subsection-header").forEach(h => {
   h.addEventListener("click", () => {
-    const next = h.nextElementSibling;
-
-    // Only toggle if it controls collapsible content
-    if (next && next.classList.contains("collapsible-content")) {
-      next.style.display =
-        next.style.display === "none" ? "block" : "none";
-    } else {
-      // keep original behavior for .section
-      if (h.parentElement.classList.contains("section")) {
-        h.parentElement.classList.toggle("collapsed");
-      }
+    const subsection = h.closest(".subsection");
+    if (subsection) {
+      subsection.classList.toggle("collapsed");
     }
   });
 });

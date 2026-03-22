@@ -80,16 +80,15 @@ summary { cursor: pointer; color: #9aaaff; }
   left: 0;
 }
 
-/* SECTION + SUBSECTION SIZE (REFERENCE) */
+/* SIZE MATCHING */
 .subsection-header {
   font-size: 1.15rem;
   padding-left: 28px;
 }
 
-/* 🔥 SUMMARY MATCHES SUBSECTION */
 .summary-header {
-  font-size: 1.15rem;      /* MATCH SIZE */
-  padding-left: 28px;      /* MATCH ALIGNMENT */
+  font-size: 1.15rem;
+  padding-left: 28px;
   color: #ffcc66;
 }
 
@@ -108,12 +107,12 @@ summary { cursor: pointer; color: #9aaaff; }
   padding-left: 10px;
 }
 
-/* 🔥 SUMMARY ARROW MATCH SIZE */
+/* SUMMARY ARROW */
 .summary-header::before {
   content: "▶";
   position: absolute;
   right: 6px;
-  font-size: 0.9rem;   /* INCREASED SIZE */
+  font-size: 0.9rem;
   top: 2px;
 }
 
@@ -158,10 +157,128 @@ summary { cursor: pointer; color: #9aaaff; }
   <p>Using Python, 2018 lightning strike data collected by the National Oceanic and Atmospheric Administration (NOAA) will be examined, calculating the total number of strikes for each month and plotting this information on a bar graph.</p>
 </div>
 
-<!-- KEEP YOUR EXISTING TECHNICAL IMPLEMENTATION BLOCK HERE UNCHANGED -->
+<div class="section">
+<h2>Technical Implementation</h2>
+<div class="collapsible-content">
+
+<!-- SECTION 1 -->
+<div class="subsection">
+<div class="subsection-header">Data Loading & Inspection</div>
+<div class="subsection-content">
+<p>[Text Here]</p>
+<details><summary>View Code</summary><pre>[Code Here]</pre></details>
+<div class="results"><strong>Results:</strong><p>[Results Here]</p></div>
+</div>
+</div>
+<div class="subsection-summary">
+<div class="summary-header">Summary</div>
+<div class="summary-content"><p>[Text Here]</p></div>
+</div>
+
+<!-- SECTION 2 -->
+<div class="subsection">
+<div class="subsection-header">Data Cleaning</div>
+<div class="subsection-content">
+<p>[Text Here]</p>
+<details><summary>View Code</summary><pre>[Code Here]</pre></details>
+<div class="results"><strong>Results:</strong><p>[Results Here]</p></div>
+</div>
+</div>
+<div class="subsection-summary">
+<div class="summary-header">Summary</div>
+<div class="summary-content"><p>[Text Here]</p></div>
+</div>
+
+<!-- SECTION 3 -->
+<div class="subsection">
+<div class="subsection-header">Feature Engineering</div>
+<div class="subsection-content">
+<p>[Text Here]</p>
+<details><summary>View Code</summary><pre>[Code Here]</pre></details>
+<div class="results"><strong>Results:</strong><p>[Results Here]</p></div>
+</div>
+</div>
+<div class="subsection-summary">
+<div class="summary-header">Summary</div>
+<div class="summary-content"><p>[Text Here]</p></div>
+</div>
+
+<!-- SECTION 4 -->
+<div class="subsection">
+<div class="subsection-header">Visualization & Analysis</div>
+<div class="subsection-content">
+<p>[Text Here]</p>
+<details><summary>View Code</summary><pre>[Code Here]</pre></details>
+<div class="results"><strong>Results:</strong><p>[Results Here]</p></div>
+</div>
+</div>
+<div class="subsection-summary">
+<div class="summary-header">Summary</div>
+<div class="summary-content"><p>[Text Here]</p></div>
+</div>
+
+</div>
+</div>
+
+<div class="section">
+<h2 id="project-overview" style="padding-left:0; cursor:default;">Project Overview</h2>
+<div class="collapsible-content">
+<p>[Text Here]</p>
+</div>
+</div>
 
 <script>
-/* KEEP YOUR EXISTING JS UNCHANGED */
+let expanded = false;
+
+function toggleAll() {
+  const sections = document.querySelectorAll(".section, .subsection");
+  const summaries = document.querySelectorAll(".summary-header");
+
+  expanded = !expanded;
+
+  sections.forEach(el => {
+    const header = el.querySelector(":scope > h2");
+    if (header && header.id === "project-overview") return;
+    el.classList.toggle("collapsed", !expanded);
+  });
+
+  summaries.forEach(el => {
+    el.classList.toggle("collapsed", !expanded);
+  });
+
+  document.getElementById("toggleBtn").textContent =
+    expanded ? "Collapse all" : "Expand all";
+}
+
+document.querySelectorAll(".section > h2").forEach(h => {
+  if (h.id === "project-overview") return;
+  h.addEventListener("click", () => {
+    h.parentElement.classList.toggle("collapsed");
+  });
+});
+
+document.querySelectorAll(".subsection-header").forEach(h => {
+  h.addEventListener("click", () => {
+    h.parentElement.classList.toggle("collapsed");
+  });
+});
+
+document.querySelectorAll(".summary-header").forEach(h => {
+  h.addEventListener("click", (e) => {
+    e.stopPropagation();
+    h.classList.toggle("collapsed");
+  });
+});
+
+document.querySelectorAll(".section, .subsection").forEach(el => {
+  const header = el.querySelector(":scope > h2");
+  if (header && header.id === "project-overview") return;
+  el.classList.add("collapsed");
+});
+
+document.querySelectorAll(".summary-header").forEach(el => {
+  el.classList.add("collapsed");
+});
 </script>
 
 <footer style="margin-top:40px; text-align:center; color:#777;">

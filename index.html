@@ -20,7 +20,12 @@ body {
   padding: 40px 20px;
 }
 
-h1 { font-size: 2.5rem; margin-bottom: 10px; }
+h1 {
+  font-size: 3.4rem;
+  margin-bottom: 8px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
 
 h2 {
   font-size: 1.8rem;              /* stronger hierarchy */
@@ -258,16 +263,38 @@ function toggleAll() {
     expanded ? "Collapse all" : "Expand all";
 }
 
-document.querySelectorAll(".section > h2").forEach(h => {
+document.querySelectorAll("h2").forEach(h => {
   if (h.id === "project-overview") return;
   h.addEventListener("click", () => {
-    h.parentElement.classList.toggle("collapsed");
+    const next = h.nextElementSibling;
+
+    // Only toggle if it controls collapsible content
+    if (next && next.classList.contains("collapsible-content")) {
+      next.style.display =
+        next.style.display === "none" ? "block" : "none";
+    } else {
+      // keep original behavior for .section
+      if (h.parentElement.classList.contains("section")) {
+        h.parentElement.classList.toggle("collapsed");
+      }
+    }
   });
 });
 
 document.querySelectorAll(".subsection-header").forEach(h => {
-  h.addEventListener("click", () => 
-    h.parentElement.classList.toggle("collapsed");
+  h.addEventListener("click", () => {
+    const next = h.nextElementSibling;
+
+    // Only toggle if it controls collapsible content
+    if (next && next.classList.contains("collapsible-content")) {
+      next.style.display =
+        next.style.display === "none" ? "block" : "none";
+    } else {
+      // keep original behavior for .section
+      if (h.parentElement.classList.contains("section")) {
+        h.parentElement.classList.toggle("collapsed");
+      }
+    }
   });
 });
 

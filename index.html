@@ -6,7 +6,6 @@
 <title>Lightning Strike Analysis (2018): NOAA Data Exploration</title>
 
 <style>
-/* ===== KEEPING YOUR ORIGINAL STYLES INTACT ===== */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -22,6 +21,7 @@ body {
 }
 
 h1 { font-size: 2.5rem; margin-bottom: 10px; }
+
 h2 {
   font-size: 1.5rem;
   margin-top: 40px;
@@ -58,7 +58,7 @@ summary { cursor: pointer; color: #9aaaff; }
   margin-bottom: 10px;
 }
 
-/* ===== COLLAPSE SYSTEM ===== */
+/* COLLAPSE SYSTEM */
 .section.collapsed > .collapsible-content { display: none; }
 .subsection.collapsed > .subsection-content { display: none; }
 .subsection.collapsed > .subsection-summary { display: none; }
@@ -83,8 +83,18 @@ summary { cursor: pointer; color: #9aaaff; }
 .section > h2::before { transform: rotate(90deg); }
 .section.collapsed > h2::before { transform: rotate(0deg); }
 
+/* REMOVE PROJECT OVERVIEW ARROW */
+#project-overview::before {
+  content: none !important;
+}
+
 .subsection-header { padding-left: 28px; }
-.subsection { margin-left: 10px; border-left: 1px solid #2a2a2a; padding-left: 10px; }
+
+.subsection {
+  margin-left: 10px;
+  border-left: 1px solid #2a2a2a;
+  padding-left: 10px;
+}
 
 .summary-header {
   padding-left: 20px;
@@ -102,7 +112,6 @@ summary { cursor: pointer; color: #9aaaff; }
 .summary-content { display: block; }
 .summary-header.collapsed + .summary-content { display: none; }
 
-/* DESKTOP */
 @media (min-width: 1024px) {
   .container { max-width: 1200px; }
   body { font-size: 18px; }
@@ -141,28 +150,60 @@ summary { cursor: pointer; color: #9aaaff; }
 <h2>Technical Implementation</h2>
 <div class="collapsible-content">
 
+<!-- SECTION 1 -->
 <div class="subsection">
 <div class="subsection-header">Section</div>
 <div class="subsection-content">
 <p>[Text Here]</p>
-
-<details>
-<summary>View Code</summary>
-<pre>[Code Here]</pre>
-</details>
-
-<div class="results">
-<strong>Results:</strong>
-<p>[Results Here]</p>
+<details><summary>View Code</summary><pre>[Code Here]</pre></details>
+<div class="results"><strong>Results:</strong><p>[Results Here]</p></div>
 </div>
 </div>
-</div>
-
 <div class="subsection-summary">
 <div class="summary-header">Summary</div>
-<div class="summary-content">
-<p>[Text Here]</p>
+<div class="summary-content"><p>[Text Here]</p></div>
 </div>
+
+<!-- SECTION 2 -->
+<div class="subsection">
+<div class="subsection-header">Section</div>
+<div class="subsection-content">
+<p>[Text Here]</p>
+<details><summary>View Code</summary><pre>[Code Here]</pre></details>
+<div class="results"><strong>Results:</strong><p>[Results Here]</p></div>
+</div>
+</div>
+<div class="subsection-summary">
+<div class="summary-header">Summary</div>
+<div class="summary-content"><p>[Text Here]</p></div>
+</div>
+
+<!-- SECTION 3 -->
+<div class="subsection">
+<div class="subsection-header">Section</div>
+<div class="subsection-content">
+<p>[Text Here]</p>
+<details><summary>View Code</summary><pre>[Code Here]</pre></details>
+<div class="results"><strong>Results:</strong><p>[Results Here]</p></div>
+</div>
+</div>
+<div class="subsection-summary">
+<div class="summary-header">Summary</div>
+<div class="summary-content"><p>[Text Here]</p></div>
+</div>
+
+<!-- SECTION 4 -->
+<div class="subsection">
+<div class="subsection-header">Section</div>
+<div class="subsection-content">
+<p>[Text Here]</p>
+<details><summary>View Code</summary><pre>[Code Here]</pre></details>
+<div class="results"><strong>Results:</strong><p>[Results Here]</p></div>
+</div>
+</div>
+<div class="subsection-summary">
+<div class="summary-header">Summary</div>
+<div class="summary-content"><p>[Text Here]</p></div>
 </div>
 
 </div>
@@ -187,7 +228,6 @@ function toggleAll() {
   sections.forEach(el => {
     const header = el.querySelector(":scope > h2");
     if (header && header.id === "project-overview") return;
-
     el.classList.toggle("collapsed", !expanded);
   });
 
@@ -199,7 +239,6 @@ function toggleAll() {
     expanded ? "Collapse all" : "Expand all";
 }
 
-// CLICK EVENTS
 document.querySelectorAll(".section > h2").forEach(h => {
   if (h.id === "project-overview") return;
   h.addEventListener("click", () => {
@@ -220,7 +259,6 @@ document.querySelectorAll(".summary-header").forEach(h => {
   });
 });
 
-// DEFAULT COLLAPSED
 document.querySelectorAll(".section, .subsection").forEach(el => {
   const header = el.querySelector(":scope > h2");
   if (header && header.id === "project-overview") return;

@@ -38,7 +38,24 @@ h2 {
   letter-spacing: 0.3px;         /* subtle polish */
 }
 
-p { color: #cfcfcf; }
+p {
+  color: #cfcfcf;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+li {
+  color: #cfcfcf;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 6px;
+}
+
+ul {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  padding-left: 22px;
+}
 
 .section { margin-top: 30px; }
 
@@ -60,7 +77,12 @@ details {
 
 summary {
   cursor: pointer;
-  color: #bbbbbb;   /* softer neutral, less competing */
+  color: #4fd1c5;  /* teal - distinct + readable */
+  font-weight: 500;
+}
+
+summary:hover {
+  opacity: 0.8;
 }
 
 .controls {
@@ -208,14 +230,9 @@ import matplotlib.pyplot as plt</pre></details>
 
 <!-- SECTION 2 -->
 <div class="subsection">
-<div class="subsection-header">Preliminary Data Inspection</div>
+<div class="subsection-header">Data Cleaning</div>
 <div class="subsection-content">
-<p>Importing the data set, <code>lightning_strikes_1.csv</code></p>
-  <p>data = pd.read_csv("lightning_strikes_1.csv")</p>
-  <p>Initial data inspection, validation and exploration performed using <code>head()</code>, <code>.shape</code>, and <code>info()</code> </p>
-  <p><code>head()</code> - to examine sample record dataset structure and feature layout</p>
-  <p><code>.shape</code> - Provides a tuple (rows, columns) to understand dataset dimensions</p>
-  <p><code>info()</code> - to assess data types, missing values, and dataset integrity</p>
+<p>[Text Here]</p>
 <details><summary>View Code</summary><pre>import pandas as pd
 import numpy as np
 import datetime as dt

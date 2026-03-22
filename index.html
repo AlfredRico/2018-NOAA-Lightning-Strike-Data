@@ -90,6 +90,7 @@ summary { cursor: pointer; color: #9aaaff; }
   font-size: 1.15rem;
   padding-left: 28px;
   color: #ffcc66;
+  line-height: 1.2;
 }
 
 /* SECTION ARROW */
@@ -109,15 +110,16 @@ summary { cursor: pointer; color: #9aaaff; }
 
 /* SUMMARY ARROW */
 .summary-header::before {
-  content: "▶";
+  content: "▸";
   position: absolute;
-  right: 6px;
-  font-size: 0.9rem;
-  top: 2px;
+  left: 0;
+  font-size: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
 }
 
-.summary-header:not(.collapsed)::before {
-  content: "▼";
+.summary-header.collapsed::before {
+  transform: translateY(-50%) rotate(0deg);
 }
 
 .summary-content { display: block; }

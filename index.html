@@ -88,7 +88,7 @@ summary { cursor: pointer; color: #9aaaff; }
 
 .summary-header {
   font-size: 1.15rem;
-  padding-left: 28px;
+  padding-left: 48px;  /* deeper indent than subsection */
   color: #ffcc66;
   line-height: 1.2;
 }
@@ -112,7 +112,7 @@ summary { cursor: pointer; color: #9aaaff; }
 .summary-header::before {
   content: "▸";
   position: absolute;
-  left: 0;
+  left: 20px;  /* align with new indent */
   font-size: 0.85rem;
   top: 50%;
   transform: translateY(-50%) rotate(90deg);

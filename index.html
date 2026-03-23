@@ -405,7 +405,28 @@ memory usage: 77.8+ MB
 
 <!-- SECTION 4 -->
 <div class="subsection">
-<div class="subsection-header">Visualization & Analysis</div>
+<div class="subsection-header">Daily Strike Analysis</div>
+<div class="subsection-content">
+<p>At this phase of the analysis, the top 10 days of 2018 with the most number of lightning strikes can be calculated using <code>groupby()</code>, <code>sum()</code>, and <code>sort_values()</code> functions from pandas</p>
+<p><code>groupby()</code> on the date column to combine all rows with the same date into a single row</p>
+<p><code>sum()</code> on all other summable columns except <code>center_point_geom</code> as this column (string object) is not summable.</p>
+<P><code>sort_values()</code> orders total strikes for each day in descending order for clearer view of highest data points.</P>
+<details><summary>View Code</summary><pre>
+# Calculate days with most lightning strikes
+df.groupby(['date']).sum().sort_values('number_of_strikes', ascending=False).head(10)
+</pre></details>
+<div class="results"><strong>Results:</strong><p>[Results Here]</p></div>
+</div>
+</div>
+<div class="subsection-summary">
+<div class="summary-header">Summary</div>
+<div class="summary-content"><p>Analysis shifts focus to daily lightning strike activity, grouping the dataset by date and calculating total number of strikes per day using <code>groupby()</code> and <code>sum()</code>, revealing peak activity periods. <code>sort_values()</code> in descending order highlighted periods of intense lightning activity in these 10 days. </p>
+  <p>One thing to note is that <code>sum()</code> was used instead of <code>count()</code> as the former correctly aggregates the true full number of strikes recorded for each day. <code>count()</code> would only return how many rows exist for each day, not the number of strikes occuring that particular period.</p></div>
+</div>
+
+<!-- SECTION 5 -->
+<div class="subsection">
+<div class="subsection-header">Monthly Trend Analysis</div>
 <div class="subsection-content">
 <p>[Text Here]</p>
 <details><summary>View Code</summary><pre>import pandas as pd
@@ -420,9 +441,9 @@ import matplotlib.pyplot as plt</pre></details>
 <div class="summary-content"><p>[Text Here]</p></div>
 </div>
 
-<!-- SECTION 4 -->
+<!-- SECTION 6 -->
 <div class="subsection">
-<div class="subsection-header">Visualization & Analysis</div>
+<div class="subsection-header">Visualization</div>
 <div class="subsection-content">
 <p>[Text Here]</p>
 <details><summary>View Code</summary><pre>import pandas as pd

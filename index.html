@@ -244,15 +244,26 @@ body.light pre {
   border: 1px solid #ddd !important;
 }
 
-/* TABLE */
+/* TABLE — FIXED */
+body.light .df-table {
+  background: #ffffff !important;
+  border-collapse: collapse;
+}
+
 body.light .df-table th {
-  background: #f1f5f9 !important;
+  background: #e2e8f0 !important;
   color: #0f172a !important;
+  border: 1px solid #cbd5e1 !important;
 }
 
 body.light .df-table td {
-  border-color: #ddd !important;
+  background: #ffffff !important;
   color: #1a1a1a !important;
+  border: 1px solid #cbd5e1 !important;
+}
+
+body.light .df-table tr:nth-child(even) {
+  background: #f8fafc !important;
 }
 
 /* LINKS */
@@ -329,8 +340,6 @@ body.light a {
   <button id="toggleBtn" onclick="toggleAll()">Expand all</button>
   <button onclick="toggleTheme()" style="margin-left:15px;">Light / Dark</button>
 </div>
-
-  <button id="toggleBtn" onclick="toggleAll()">Expand all</button>
 </div>
 
 <h2>Project Background</h2>

@@ -538,12 +538,47 @@ df.head()
 <div class="subsection">
 <div class="subsection-header">Visualization</div>
 <div class="subsection-content">
-<p>[Text Here]</p>
-<details><summary>View Code</summary><pre>import pandas as pd
-import numpy as np
-import datetime as dt
-import matplotlib.pyplot as plt</pre></details>
-<div class="results"><strong>Results:</strong><p>[Results Here]</p></div>
+<p>Creating a dataframe called <code>df_by_month</code> allowing access to the month, month text, and total number of srikes for each month to help with plotting.</p>
+<details><summary>View Code</summary><pre>
+# Dataframe for plotting
+df_by_month = df.groupby(['month', 'month_txt']).sum().sort_values('month', ascending=True).head(12).reset_index()
+df_by_month
+</pre></details>
+
+<div class="results">
+<strong>Results:</strong>
+
+<p><strong>Monthly lightning strike dataset used for visualization:</strong></p>
+
+<div style="overflow-x:auto;">
+<table class="df-table">
+<thead>
+<tr>
+<th></th>
+<th>month</th>
+<th>month_txt</th>
+<th>number_of_strikes</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>0</td><td>1</td><td>Jan</td><td>860045</td></tr>
+<tr><td>1</td><td>2</td><td>Feb</td><td>2071315</td></tr>
+<tr><td>2</td><td>3</td><td>Mar</td><td>854168</td></tr>
+<tr><td>3</td><td>4</td><td>Apr</td><td>1524339</td></tr>
+<tr><td>4</td><td>5</td><td>May</td><td>4166726</td></tr>
+<tr><td>5</td><td>6</td><td>Jun</td><td>6445083</td></tr>
+<tr><td>6</td><td>7</td><td>Jul</td><td>8320400</td></tr>
+<tr><td>7</td><td>8</td><td>Aug</td><td>15525255</td></tr>
+<tr><td>8</td><td>9</td><td>Sep</td><td>3018336</td></tr>
+<tr><td>9</td><td>10</td><td>Oct</td><td>1093962</td></tr>
+<tr><td>10</td><td>11</td><td>Nov</td><td>409263</td></tr>
+<tr><td>11</td><td>12</td><td>Dec</td><td>312097</td></tr>
+</tbody>
+</table>
+</div>
+
+</div>
+
 </div>
 </div>
 <div class="subsection-summary">

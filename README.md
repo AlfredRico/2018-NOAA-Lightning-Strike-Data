@@ -2,7 +2,7 @@
 
 ## Project Overview
 This project analyzes more than 3.4 million NOAA lightning records from 2018 to identify daily and seasonal strike patterns.  
-The workflow demonstrates practical data cleaning, feature engineering, aggregation, and visualization in Python.  
+The workflow demonstrates data cleaning, feature engineering, aggregation, and visualization using Python in Jupyter notebook.  
 Results show clear summer concentration, with August being the peak month.
 
 ## Project Background

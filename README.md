@@ -19,9 +19,9 @@ Use Python in Jupyter Notebook to:
 - **Source file:** `lightning_strikes_1.csv`
 - **Size:** 3,401,012 rows, 3 columns
 - **Columns:**
-- `date` (string, converted to datetime)
-- `number_of_strikes` (integer)
-- `center_point_geom` (geospatial point text)
+  - `date` (string, converted to datetime)
+  - `number_of_strikes` (integer)
+  - `center_point_geom` (geospatial point text)
 
 ## Tools and Libraries
 - Python

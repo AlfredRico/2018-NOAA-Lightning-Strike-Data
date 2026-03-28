@@ -1,4 +1,4 @@
-# Lightning Strike Analysis (2018): NOAA Data Exploration
+# NOAA Lightning Strike Analysis (EDA/Feature Engineering with Python)
 
 ## Project Overview
 This project analyzes more than 3.4 million NOAA lightning records from 2018 to identify daily and seasonal strike patterns. This workflow demonstrates data cleaning, feature engineering, aggregation, and visualization implemented using Python in a Jupyter notebook environment. 
